@@ -1,4 +1,23 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import { createRouter, createWebHistory } from "vue-router";
 
-createApp(App).mount('#app')
+import App from './App.vue'
+import CourseSign from "./components/template/CourseSign.vue";
+import LightSign from "./components/template/LightSign.vue";
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '/klasseskilt',
+      component: CourseSign
+    },
+    {
+      path: '/lokaleskilt',
+      component: LightSign
+    }
+  ]
+})
+
+
+createApp(App).use(router).mount('#app')
